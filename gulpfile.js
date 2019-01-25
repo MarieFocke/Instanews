@@ -27,7 +27,7 @@ gulp.task("sass", function() {
 gulp.task("script", function() {
   return gulp
     .src("./js/*.js")
-    .pipe(uglifycss())
+    .pipe(terser())
     .pipe(rename({ extname: ".min.js" }))
     .pipe(gulp.dest("./build/js"));
 });
