@@ -2,11 +2,23 @@ const gulp = require("gulp");
 const uglifycss = require("gulp-uglifycss");
 const rename = require("gulp-rename");
 const browserSync = require("browser-sync").create();
+
+const sass = require("gulp-sass");
+const prettyError = require("gulp-prettyerror");
+const autoprefixer = require("gulp-autoprefixer");
 const terser = require("gulp-terser");
-// Task to minify CSS
-gulp.task("css", function() {
+
+// Task to minify Sass
+gulp.task("sass", function() {
   return gulp
-    .src("./css/*.css")
+    .src("./sass/*.scss")
+    .pipe(prettyError())
+    .pipe(sass())
+    .pipe(autoprefixer({
+        browsers: ["last 2 versions"]
+    })
+    )
+    .pipe(gulp.dest("./build/css"))
     .pipe(uglifycss())
     .pipe(rename({ extname: ".min.css" }))
     .pipe(gulp.dest("./build/css"));
@@ -22,7 +34,7 @@ gulp.task("script", function() {
 
 // Task to watch for changes to CSS files
 gulp.task("watch", function(done) {
-  gulp.watch("css/*.css", gulp.series("css"));
+  gulp.watch("sass/*.scss", gulp.series("sass"));
   gulp.watch("js/*.js", gulp.series("lint", "script"));
   done();
 });
