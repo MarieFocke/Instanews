@@ -8,25 +8,28 @@
   </head>
   <body id="home">
     <header>
-      <section>
-        <div><img src="./assets/images/nyt-logo.svg" /></div>
-      </section>
-      <section>
-        <div><h2>Choose a section:</h2></div>
-        <div>
-          <select class="button">
-            <option value="item0">Sections...</option>
-            <option value="item1">Home</option>
-            <option value="item2">Arts</option>
-            <option value="item3">Business</option>
-            <option value="item4">Sports</option>
-            <option value="item5">Technology</option>
-            <option value="item6">Fashion</option>
+        <div class="logo-image">
+          <img src="./assets/images/nyt-logo.svg"/>
+        </div>
+        <div class="link-website">
+          <h2>Choose a section:</h2>
+          <select class="menu-selection" id="drop-down">
+            <option value="">Sections...</option>
+            <option value="home">Home</option>
+            <option value="arts">Arts</option>
+            <option value="business">Business</option>
+            <option value="sports">Sports</option>
+            <option value="technology">Technology</option>
+            <option value="fashion">Fashion</option>
           </select>
         </div>
-      </section>
     </header>
-    <section></section>
+    <section>
+        <div class="loading"></div>
+        <div class="articles">
+
+        </div>
+    </section>
     <footer>
       <div><p>&copy; Copyright 2016 INSTANEWS</p></div>
     </footer>

@@ -1,30 +1,3 @@
-$(function() {
-  console.log("Welcome to Instanews!");
-});
-
-$(".button").one("click", function() {
-  $.ajax({
-    method: "GET",
-    url: ""
-  })
-    .done(function(data) {
-      $(".results").empty();
-      $.each(data.weather, function(key, value) {
-        $(".results").append("<p>" + iconurl + "</p>"),
-          $(".results").append("<p class='main'>" + value.main + "</p>"),
-          $(".results").append(
-            "<p class='description'>" + value.description + "</p>"
-          );
-        console.log(value);
-      });
-    })
-    .fail(function() {
-      $(".results").append(
-        "<p>" + "Sorry, there was a problem, please try again." + "</p>"
-      );
-    });
-});
-
 // Problem: retrieve content from the NYT top stories API and add it to our site.
 //If we don't get a response, let the user know.
 
@@ -36,22 +9,38 @@ $(".button").one("click", function() {
 //4.Append that stuff to the DOM.
 //5.If unsuccessful, append and show a helpful to the user in the UI.
 //6.Hide the loader again.
-
 $(function() {
-  console.log("welcom");
-  $("#button").on("change", function() {
-    $("").before("<p class='wait'>Loading</p>");
-    const button = $(this).val();
+  console.log("Good evening!");
+  $("#drop-down").on("change", function() {
+    const section = $(this).val();
+    console.log(section);
+    $(".loading").before("<img src='./assets/images/ajax-loader.gif' width=50px;>");
+    $(".results").empty();
     $.ajax({
       method: "GET",
       url:
         "https://api.nytimes.com/svc/topstories/v2/" +
-        button +
-        "0cbWw4XNAHN4q9bMbGDVkoV11QQKTUCJ",
+        section +
+        ".json?api-key=0cbWw4XNAHN4q9bMbGDVkoV11QQKTUCJ",
       dataType: "json"
     })
-      .done(function(response) {})
-      .fail(function() {})
-      .always(function(data) {});
+      .done(function(response) {
+        $(response).slice(0, 12);
+        console.log(response);
+        $.each(response.results, function(key, value) {
+          if (value.multimedia[0] !== undefined);
+          $(".articles").append(
+            "<li>"+ "<a href= " + value.url + ">" + "<img src=" + value.multimedia[4] + "/>" + "<span>" + value.abstract + "</span>" + "</a>" + "</li>"
+          );
+        });
+      })
+      .fail(function(response) {
+        $(".articles").append(
+          "<span> Sorry the articles were unable to be found </span>"
+        );
+      })
+      .always(function(response){
+        $(".loading").remove("<img src='./assets/images/ajax-loader.gif' width=50px;>"); 
+      })
   });
 });
