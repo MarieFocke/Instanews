@@ -14,8 +14,8 @@ $(function() {
   $("#drop-down").on("change", function() {
     const section = $(this).val();
     console.log(section);
-    $(".loading").before("<img src='./assets/images/ajax-loader.gif' width=50px;>");
-    $(".results").empty();
+    $(".loading").before("<img class='loader' src='./assets/images/ajax-loader.gif' width='50px;'>");
+    $(".articles").empty();
     $.ajax({
       method: "GET",
       url:
@@ -25,13 +25,15 @@ $(function() {
       dataType: "json"
     })
       .done(function(response) {
-        $(response).slice(0, 12);
-        console.log(response);
-        $.each(response.results, function(key, value) {
-          if (value.multimedia[0] !== undefined);
-          $(".articles").append(
-            "<li>"+ "<a href= " + value.url + ">" + "<img src=" + value.multimedia[4] + "/>" + "<span>" + value.abstract + "</span>" + "</a>" + "</li>"
-          );
+        const articles = response.results.slice(0, 12);
+        console.log(articles);
+        $.each(articles, function(key, value) {
+          articles.filter()
+          if (value.multimedia[0] !== undefined) {
+            $(".articles").append(
+              "<li>"+ "<a href= " + value.url + ">" + "<img src=" + value.multimedia[4] + "/>" + "<span>" + value.abstract + "</span>" + "</a>" + "</li>"
+            );
+          }
         });
       })
       .fail(function(response) {
@@ -40,7 +42,7 @@ $(function() {
         );
       })
       .always(function(response){
-        $(".loading").remove("<img src='./assets/images/ajax-loader.gif' width=50px;>"); 
+        $(".loading").remove(".loader"); 
       })
   });
 });
