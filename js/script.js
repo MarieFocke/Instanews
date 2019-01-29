@@ -14,7 +14,9 @@ $(function() {
   $("#drop-down").on("change", function() {
     const section = $(this).val();
     console.log(section);
-    $(".loading").before("<img class='loader' src='./assets/images/ajax-loader.gif' width='50px;'>");
+    $(".loading").before(
+      "<img class='loader' src='./assets/images/ajax-loader.gif' width='50px;'>"
+    );
     $(".articles").empty();
     $.ajax({
       method: "GET",
@@ -28,10 +30,21 @@ $(function() {
         const articles = response.results.slice(0, 12);
         console.log(articles);
         $.each(articles, function(key, value) {
-          articles.filter()
           if (value.multimedia[0] !== undefined) {
             $(".articles").append(
-              "<li>"+ "<a href= " + value.url + ">" + "<img src=" + value.multimedia[4] + "/>" + "<span>" + value.abstract + "</span>" + "</a>" + "</li>"
+              "<li>" +
+                "<a href= " +
+                value.url +
+                ">" +
+                "<div class='img' style='background-image:url(" +
+                value.multimedia[4].url +
+                ");'>" +
+                "<p>" +
+                value.abstract +
+                "</p>" +
+                "</div>" +
+                "</a>" +
+                "</li>"
             );
           }
         });
@@ -41,8 +54,8 @@ $(function() {
           "<span> Sorry the articles were unable to be found </span>"
         );
       })
-      .always(function(response){
-        $(".loading").remove(".loader"); 
-      })
+      .always(function(response) {
+        $(".loader").remove();
+      });
   });
 });

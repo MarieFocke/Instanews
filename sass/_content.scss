@@ -1,0 +1,43 @@
+.articles {
+    flex: 1 0 100%;
+  .img {
+    height: 300px;
+    width: 100%;
+    background-position: no-repeat;
+    background-size: cover, contain;
+    
+  }
+  a {
+    text-decoration: none;
+    text-align: left;
+    color: #ffffff;
+    
+  }
+  p{
+    background: rgba( 0, 0, 0, 0.6);
+    padding: 5px;
+    position: absolute;
+    width: 400px;
+    height: 75px;
+    margin-top: 225px; 
+  }
+  li {
+    list-style: none;
+  }
+  .loading{
+    
+  }
+  @include tablet {
+    .list-articles li a{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+      .img {
+          max-width: 50%;
+          flex:1 0 50%;
+      }
+    }
+  }
+  @include desktop {
+  }
+}

@@ -1,23 +1,3 @@
-@font-face {
-  font-family: 'OpenSans-light';
-  src: url("/assets/fonts/OpenSans-Light.eot");
-  src: url("/assets/fonts/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/OpenSans-Light.woff") format("woff"), url("/assets/fonts/OpenSans-Light.ttf") format("truetype"), url("/assets/fonts/OpenSans-Light.svg") format("svg");
-  font-weight: 300;
-  font-style: normal; }
-
-body {
-  background-color: black;
-  font-family: "OpenSans-light";
-  font-size: 16px;
-  color: #ffffff; }
-
-header {
-  padding: 40px 20px; }
-
-footer {
-  color: #c2c2c2;
-  padding: 40px 20px; }
-
 /*CSS Reset
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -148,3 +128,89 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+
+@font-face {
+  font-family: 'OpenSans-light';
+  src: url("/assets/fonts/OpenSans-Light.eot");
+  src: url("/assets/fonts/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/OpenSans-Light.woff") format("woff"), url("/assets/fonts/OpenSans-Light.ttf") format("truetype"), url("/assets/fonts/OpenSans-Light.svg") format("svg");
+  font-weight: 300;
+  font-style: normal; }
+
+body {
+  background-color: black;
+  font-family: "OpenSans-light";
+  font-size: 16px;
+  color: #ffffff; }
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 30px; }
+  header .logo-image {
+    padding-bottom: 30px; }
+  header .link-website h2 {
+    padding-bottom: 10px; }
+  header .link-website select {
+    width: 150px;
+    height: 30px;
+    font-family: "OpenSans-light"; }
+
+.articles {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 100%;
+          flex: 1 0 100%; }
+  .articles .img {
+    height: 300px;
+    width: 100%;
+    background-position: no-repeat;
+    background-size: cover, contain; }
+  .articles a {
+    text-decoration: none;
+    text-align: left;
+    color: #ffffff; }
+  .articles p {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    position: absolute;
+    width: 400px;
+    height: 75px;
+    margin-top: 225px; }
+  .articles li {
+    list-style: none; }
+  @media (min-width: 600px) {
+    .articles .list-articles li a {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap; }
+      .articles .list-articles li a .img {
+        max-width: 50%;
+        -webkit-box-flex: 1;
+            -ms-flex: 1 0 50%;
+                flex: 1 0 50%; } }
+
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #c2c2c2;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  footer .copyright {
+    padding-bottom: 50px;
+    padding-top: 25px; }
