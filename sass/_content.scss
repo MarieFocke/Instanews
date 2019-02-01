@@ -1,40 +1,42 @@
 .articles {
-    flex: 1 0 100%;
+  flex: 1 0 100%;
+  width: 100%;
   .img {
-    height: 300px;
-    width: 100%;
+    overflow: hidden;
+    padding-bottom: 70%;
+    text-align: left;
+    position: relative;
     background-position: no-repeat;
     background-size: cover, contain;
-    
   }
   a {
     text-decoration: none;
     text-align: left;
     color: #ffffff;
-    
   }
-  p{
-    background: rgba( 0, 0, 0, 0.6);
+  p {
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
     padding: 5px;
     position: absolute;
-    width: 400px;
-    height: 75px;
-    margin-top: 225px; 
+    width: 100%;
+    bottom: 0;
+    line-height: 25px;
   }
+
   li {
     list-style: none;
   }
-  .loading{
-    
+  .loading {
   }
   @include tablet {
-    .list-articles li a{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+    .list-articles li a {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
       .img {
-          max-width: 50%;
-          flex:1 0 50%;
+        max-width: 50%;
+        flex: 1 0 50%;
       }
     }
   }
